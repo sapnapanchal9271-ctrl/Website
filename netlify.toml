@@ -1,0 +1,13 @@
+[build]
+publish = "dist"
+command = "npx vite build"
+
+[build.environment]
+NODE_VERSION = "18"
+
+[[forms]]
+name = "contact"
+
+[form]
+[form.settings]
+spam_protection = true
