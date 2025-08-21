@@ -38,7 +38,7 @@
     /* Text Colors */
     --text-primary: #1e293b;
     --text-secondary: #64748b;
-    --text-light: #000000;
+    --text-light: #ffffff;
     --text-muted: #94a3b8;
     
     /* Background Colors */
@@ -266,7 +266,7 @@ body::before {
 .hero-greeting {
     display: block;
     font-size: 1.25rem;
-    color: #000000;
+    color: var(--text-light);
     margin-bottom: var(--space-sm);
     font-weight: 500;
 }
@@ -285,14 +285,14 @@ body::before {
 
 .hero-subtitle {
     font-size: 1.75rem;
-    color: #000000;
+    color: var(--text-light);
     margin-bottom: var(--space-xl);
     font-weight: 600;
 }
 
 .hero-description {
     font-size: 1.125rem;
-    color: #000000;
+    color: var(--text-light);
     margin-bottom: var(--space-2xl);
     line-height: 1.7;
     max-width: 600px;
@@ -443,7 +443,7 @@ section {
 
 .section-subtitle {
     font-size: 1.25rem;
-    color: #000000;
+    color: var(--text-light);
     max-width: 600px;
     margin: 0 auto;
 }
@@ -515,7 +515,7 @@ section {
 
 .about-paragraph {
     font-size: 1.125rem;
-    color: #000000;
+    color: var(--text-light);
     margin-bottom: var(--space-xl);
     line-height: 1.8;
     letter-spacing: -0.025em;
@@ -532,7 +532,7 @@ section {
     text-align: center;
     padding: var(--space-xl);
     border-radius: var(--radius-xl);
-    background: var(--white);
+    background: #f1f5f9;
     transition: var(--transition);
     border: 1px solid var(--gray-200);
     position: relative;
@@ -574,7 +574,7 @@ section {
 
 .stat-label {
     font-size: 0.875rem;
-    color: #000000;
+    color: var(--text-primary);
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -608,7 +608,7 @@ section {
     align-items: center;
     gap: var(--space-md);
     padding: var(--space-xl);
-    background: var(--white);
+    background: #f1f5f9;
     border-radius: var(--radius-xl);
     transition: var(--transition);
     text-align: center;
@@ -721,7 +721,7 @@ section {
 }
 
 .timeline-content {
-    background: var(--white);
+    background: #f1f5f9;
     padding: var(--space-2xl);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
@@ -779,7 +779,7 @@ section {
 
 .timeline-description {
     font-size: 1rem;
-    color: #000000;
+    color: var(--text-primary);
     margin-bottom: var(--space-xl);
     line-height: 1.7;
 }
@@ -795,7 +795,7 @@ section {
     align-items: center;
     gap: var(--space-sm);
     font-size: 0.95rem;
-    color: #000000;
+    color: var(--text-primary);
 }
 
 .achievement-icon {
@@ -889,7 +889,7 @@ section {
 }
 
 .contact-details span {
-    color: #000000;
+    color: var(--text-light);
 }
 
 /* Form Styling */
@@ -911,13 +911,13 @@ section {
 .form-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-light);
+    color: var(--text-primary);
     margin-bottom: var(--space-md);
 }
 
 .form-description {
     font-size: 1rem;
-    color: #000000;
+    color: var(--text-primary);
     line-height: 1.6;
     max-width: 400px;
     margin: 0 auto;
@@ -967,7 +967,7 @@ section {
     align-items: center;
     gap: var(--space-sm);
     font-size: 0.875rem;
-    color: #000000;
+    color: var(--text-primary);
     font-weight: 500;
 }
 
@@ -977,7 +977,7 @@ section {
 }
 
 .form {
-    background: var(--white);
+    background: #f1f5f9;
     padding: var(--space-2xl);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
