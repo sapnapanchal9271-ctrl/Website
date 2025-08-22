@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateOnScroll();
     
     // Add scroll animate class to elements
-    const elementsToAnimate = document.querySelectorAll('.timeline-item, .contact-item, .skill-item, .stat-item');
+    const elementsToAnimate = document.querySelectorAll('.timeline-item, .contact-item, .skill-item, .stat-item, .tool-item');
     elementsToAnimate.forEach(el => {
         el.classList.add('scroll-animate');
     });
