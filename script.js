@@ -358,5 +358,9 @@ style.textContent = `
             display: flex;
         }
     }
+    
+    .tool-item:nth-child(9) { animation-delay: 0.9s; }
+    .tool-item:nth-child(10) { animation-delay: 1.0s; }
+    .tool-item:nth-child(11) { animation-delay: 1.1s; }
 `;
 document.head.appendChild(style);
