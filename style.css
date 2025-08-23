@@ -827,23 +827,25 @@ section {
 
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-lg);
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
 .tool-item {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     gap: var(--space-lg);
-    padding: var(--space-lg);
-    background: #f1f5f9;
+    padding: var(--space-xl);
+    background: var(--text-light);
     border-radius: var(--radius-xl);
     transition: var(--transition);
     border: 1px solid var(--gray-200);
     position: relative;
     overflow: hidden;
+    text-align: center;
     opacity: 0;
     transform: translateY(30px);
     animation: slideInUp 0.6s ease-out forwards;
@@ -857,18 +859,19 @@ section {
 .tool-item:nth-child(6) { animation-delay: 0.6s; }
 .tool-item:nth-child(7) { animation-delay: 0.7s; }
 .tool-item:nth-child(8) { animation-delay: 0.8s; }
+.tool-item:nth-child(9) { animation-delay: 0.9s; }
+.tool-item:nth-child(10) { animation-delay: 1.0s; }
+.tool-item:nth-child(11) { animation-delay: 1.1s; }
 
 .tool-item::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    width: 5px;
+    left: -100%;
+    width: 100%;
     height: 100%;
-    background: var(--gradient-primary);
-    transform: scaleY(0);
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
     transition: var(--transition);
-    transform-origin: top;
 }
 
 .tool-item:hover {
@@ -878,25 +881,19 @@ section {
 }
 
 .tool-item:hover::before {
-    transform: scaleY(1);
+    left: 100%;
 }
 
 .tool-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--gradient-primary);
-    border-radius: var(--radius-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-light);
-    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    color: var(--primary-color);
     transition: var(--transition);
 }
 
 .tool-item:hover .tool-icon {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: var(--shadow-colored);
+    color: var(--secondary-color);
+    transform: scale(1.1);
 }
 
 .tool-content {
@@ -904,14 +901,14 @@ section {
 }
 
 .tool-name {
-    font-size: 1.125rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: var(--space-sm);
 }
 
 .tool-description {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
     line-height: 1.6;
 }
