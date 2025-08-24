@@ -606,7 +606,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-md);
+    gap: var(--space-lg);
     padding: var(--space-xl);
     background: #f1f5f9;
     border-radius: var(--radius-xl);
@@ -862,6 +862,7 @@ section {
 .tool-item:nth-child(9) { animation-delay: 0.9s; }
 .tool-item:nth-child(10) { animation-delay: 1.0s; }
 .tool-item:nth-child(11) { animation-delay: 1.1s; }
+.tool-item:nth-child(12) { animation-delay: 1.2s; }
 
 .tool-item::before {
     content: '';
@@ -901,9 +902,20 @@ section {
 }
 
 .tool-name {
+    flex: 1;
+}
+
+.tool-name {
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.tool-description {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
     margin-bottom: var(--space-sm);
 }
 

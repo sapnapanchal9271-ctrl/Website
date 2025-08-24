@@ -362,5 +362,6 @@ style.textContent = `
     .tool-item:nth-child(9) { animation-delay: 0.9s; }
     .tool-item:nth-child(10) { animation-delay: 1.0s; }
     .tool-item:nth-child(11) { animation-delay: 1.1s; }
+    .tool-item:nth-child(12) { animation-delay: 1.2s; }
 `;
 document.head.appendChild(style);
