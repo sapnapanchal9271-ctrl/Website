@@ -849,6 +849,7 @@ section {
     opacity: 0;
     transform: translateY(30px);
     animation: slideInUp 0.6s ease-out forwards;
+    cursor: pointer;
 }
 
 .tool-item:nth-child(1) { animation-delay: 0.1s; }
@@ -875,16 +876,32 @@ section {
     transition: var(--transition);
 }
 
+.tool-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: var(--transition);
+    transform-origin: left;
+}
 .tool-item:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-colored-lg);
     border-color: var(--gray-300);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
 }
 
 .tool-item:hover::before {
     left: 100%;
 }
 
+.tool-item:hover::after {
+    transform: scaleX(1);
+}
 .tool-icon {
     width: 32px;
     height: 32px;
@@ -894,35 +911,44 @@ section {
 
 .tool-item:hover .tool-icon {
     color: var(--secondary-color);
-    transform: scale(1.1);
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 4px 8px rgba(102, 126, 234, 0.3));
 }
 
 .tool-content {
-    flex: 1;
-}
-
-.tool-name {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    width: 100%;
 }
 
 .tool-name {
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: var(--space-sm);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.tool-item:hover .tool-name {
+    color: var(--primary-color);
+    transform: translateY(-2px);
 }
 
 .tool-description {
     font-size: 0.8rem;
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: var(--space-sm);
+    text-align: center;
+    transition: var(--transition);
+    opacity: 0.8;
 }
 
-.tool-description {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
+.tool-item:hover .tool-description {
+    opacity: 1;
+    color: var(--text-primary);
+    transform: translateY(-1px);
 }
 
 /* Contact Section */
