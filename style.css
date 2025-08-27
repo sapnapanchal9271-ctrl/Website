@@ -476,6 +476,54 @@ body::before {
     position: relative;
     width: 350px;
     height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-avatar::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: conic-gradient(
+        from 0deg,
+        var(--primary-color),
+        var(--secondary-color),
+        var(--accent-color),
+        var(--success-color),
+        var(--primary-color)
+    );
+    border-radius: var(--radius-2xl);
+    z-index: -1;
+    animation: rotateBorder 4s linear infinite;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.hero-avatar::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.3), transparent);
+    border-radius: var(--radius-2xl);
+    z-index: -2;
+    animation: pulse 3s ease-in-out infinite;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.hero-avatar:hover::before {
+    opacity: 1;
+}
+
+.hero-avatar:hover::after {
+    opacity: 1;
 }
 
 .avatar-image {
@@ -487,6 +535,8 @@ body::before {
     box-shadow: var(--shadow-2xl);
     transition: var(--transition);
     border: 4px solid var(--white);
+    position: relative;
+    z-index: 1;
 }
 
 .avatar-image:hover {
@@ -649,6 +699,54 @@ section {
     position: relative;
     width: 320px;
     height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-image-container::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: conic-gradient(
+        from 180deg,
+        var(--accent-color),
+        var(--success-color),
+        var(--primary-color),
+        var(--secondary-color),
+        var(--accent-color)
+    );
+    border-radius: var(--radius-2xl);
+    z-index: -1;
+    animation: rotateBorderReverse 5s linear infinite;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.profile-image-container::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    right: -12px;
+    bottom: -12px;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.2), transparent 70%);
+    border-radius: var(--radius-2xl);
+    z-index: -2;
+    animation: breathe 4s ease-in-out infinite;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.profile-image-container:hover::before {
+    opacity: 1;
+}
+
+.profile-image-container:hover::after {
+    opacity: 1;
 }
 
 .profile-image-photo {
@@ -660,6 +758,8 @@ section {
     box-shadow: var(--shadow-2xl);
     transition: var(--transition);
     border: 4px solid var(--white);
+    position: relative;
+    z-index: 1;
 }
 
 .profile-image-photo:hover {
@@ -1517,9 +1617,37 @@ section {
         height: 280px;
     }
     
+    .hero-avatar::before {
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
+    }
+    
+    .hero-avatar::after {
+        top: -12px;
+        left: -12px;
+        right: -12px;
+        bottom: -12px;
+    }
+    
     .profile-image-container {
         width: 250px;
         height: 250px;
+    }
+    
+    .profile-image-container::before {
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
+    }
+    
+    .profile-image-container::after {
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
     }
     
     .about-stats {
@@ -1647,6 +1775,36 @@ section {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+/* Photo boundary animations */
+@keyframes rotateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateBorderReverse {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.6;
+    }
 }
 
 .text-center {
