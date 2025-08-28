@@ -484,20 +484,19 @@ body::before {
 .hero-avatar::before {
     content: '';
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    background: linear-gradient(45deg, 
-        var(--primary-color), 
-        var(--accent-color), 
-        var(--success-color), 
-        var(--secondary-color)
-    );
-    background-size: 400% 400%;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: 
+        linear-gradient(0deg, transparent, var(--primary-color), transparent),
+        linear-gradient(90deg, transparent, var(--accent-color), transparent),
+        linear-gradient(45deg, transparent, var(--success-color), transparent),
+        linear-gradient(-45deg, transparent, var(--secondary-color), transparent);
+    background-size: 100% 200%, 200% 100%, 200% 200%, 200% 200%;
     border-radius: var(--radius-2xl);
     z-index: -1;
-    animation: gradientShift 3s ease-in-out infinite;
+    animation: laserGrid 3s ease-in-out infinite;
     opacity: 0;
     transition: var(--transition);
 }
@@ -505,17 +504,23 @@ body::before {
 .hero-avatar::after {
     content: '';
     position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
-    background: 
-        radial-gradient(circle at 25% 25%, rgba(102, 126, 234, 0.4) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(245, 101, 101, 0.4) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.3) 0%, transparent 70%);
+    top: -25px;
+    left: -25px;
+    right: -25px;
+    bottom: -25px;
+    background: conic-gradient(
+        from 0deg at 50% 50%,
+        transparent 0deg,
+        var(--primary-color) 60deg,
+        transparent 120deg,
+        var(--accent-color) 180deg,
+        transparent 240deg,
+        var(--success-color) 300deg,
+        transparent 360deg
+    );
     border-radius: var(--radius-2xl);
     z-index: -2;
-    animation: orbitalGlow 4s ease-in-out infinite;
+    animation: conicSpin 4s linear infinite;
     opacity: 0;
     transition: var(--transition);
 }
@@ -1999,6 +2004,54 @@ section {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+/* New laser grid animation */
+@keyframes laserGrid {
+    0% {
+        background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+        filter: hue-rotate(0deg);
+    }
+    25% {
+        background-position: 0% 100%, 100% 0%, 100% 100%, 100% 100%;
+        filter: hue-rotate(90deg);
+    }
+    50% {
+        background-position: 0% 200%, 200% 0%, 200% 200%, 200% 200%;
+        filter: hue-rotate(180deg);
+    }
+    75% {
+        background-position: 0% 100%, 100% 0%, 100% 100%, 100% 100%;
+        filter: hue-rotate(270deg);
+    }
+    100% {
+        background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* Conic spinning animation */
+@keyframes conicSpin {
+    0% {
+        transform: rotate(0deg) scale(1);
+        filter: brightness(1);
+    }
+    25% {
+        transform: rotate(90deg) scale(1.05);
+        filter: brightness(1.2);
+    }
+    50% {
+        transform: rotate(180deg) scale(1);
+        filter: brightness(1);
+    }
+    75% {
+        transform: rotate(270deg) scale(1.05);
+        filter: brightness(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        filter: brightness(1);
+    }
 }
 
 /* Photo boundary animations */
