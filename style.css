@@ -1320,6 +1320,7 @@ section {
     gap: var(--space-lg);
     max-width: 900px;
     margin: 0 auto;
+    perspective: 1000px;
 }
 
 .tool-item {
@@ -1375,6 +1376,8 @@ section {
     background: var(--gradient-primary);
     transform: scaleX(0);
     transition: var(--transition);
+    animation: float 6s ease-in-out infinite;
+    transform-style: preserve-3d;
     transform-origin: left;
 }
 .tool-item:hover {
@@ -1389,6 +1392,8 @@ section {
 }
 
 .tool-item:hover::after {
+    animation-play-state: paused;
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
     transform: scaleX(1);
 }
 .tool-icon {
@@ -1402,6 +1407,7 @@ section {
     color: var(--secondary-color);
     transform: scale(1.2) rotate(5deg);
     filter: drop-shadow(0 4px 8px rgba(102, 126, 234, 0.3));
+    transform-origin: center;
 }
 
 .tool-content {
