@@ -1320,7 +1320,6 @@ section {
     gap: var(--space-lg);
     max-width: 900px;
     margin: 0 auto;
-    perspective: 1000px;
 }
 
 .tool-item {
@@ -1376,8 +1375,6 @@ section {
     background: var(--gradient-primary);
     transform: scaleX(0);
     transition: var(--transition);
-    animation: float 6s ease-in-out infinite;
-    transform-style: preserve-3d;
     transform-origin: left;
 }
 .tool-item:hover {
@@ -1392,8 +1389,6 @@ section {
 }
 
 .tool-item:hover::after {
-    animation-play-state: paused;
-    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
     transform: scaleX(1);
 }
 .tool-icon {
@@ -1407,7 +1402,6 @@ section {
     color: var(--secondary-color);
     transform: scale(1.2) rotate(5deg);
     filter: drop-shadow(0 4px 8px rgba(102, 126, 234, 0.3));
-    transform-origin: center;
 }
 
 .tool-content {
@@ -2345,3 +2339,49 @@ section {
 .mt-4 { margin-top: var(--space-lg); }
 .mt-5 { margin-top: var(--space-xl); }
 .mt-6 { margin-top: var(--space-2xl); }
+
+/* Floating animation for tool items */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+    }
+    16.66% {
+        transform: translateY(-8px) rotateX(1deg) rotateY(-1deg);
+    }
+    33.33% {
+        transform: translateY(-12px) rotateX(0deg) rotateY(1deg);
+    }
+    50% {
+        transform: translateY(-6px) rotateX(-1deg) rotateY(0deg);
+    }
+    66.66% {
+        transform: translateY(-10px) rotateX(1deg) rotateY(1deg);
+    }
+    83.33% {
+        transform: translateY(-4px) rotateX(0deg) rotateY(-1deg);
+    }
+}
+
+/* Staggered animation delays for tool items */
+.tool-item:nth-child(1) { animation-delay: 0s; }
+.tool-item:nth-child(2) { animation-delay: 0.5s; }
+.tool-item:nth-child(3) { animation-delay: 1s; }
+.tool-item:nth-child(4) { animation-delay: 1.5s; }
+.tool-item:nth-child(5) { animation-delay: 2s; }
+.tool-item:nth-child(6) { animation-delay: 2.5s; }
+.tool-item:nth-child(7) { animation-delay: 3s; }
+.tool-item:nth-child(8) { animation-delay: 3.5s; }
+.tool-item:nth-child(9) { animation-delay: 4s; }
+.tool-item:nth-child(10) { animation-delay: 4.5s; }
+.tool-item:nth-child(11) { animation-delay: 5s; }
+.tool-item:nth-child(12) { animation-delay: 5.5s; }
+
+/* Enhanced tool item hover effects */
+.tool-item:hover .tool-icon {
+    transform: scale(1.2) rotateY(15deg);
+    color: #f5576c;
+}
+
+.tool-item:hover .tool-name {
+    color: var(--primary-color);
+}
