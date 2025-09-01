@@ -311,14 +311,45 @@ function addFloatingAnimation() {
 
 // Initialize floating animation after page load
 setTimeout(addFloatingAnimation, 2000);
+}
+
+/* Staggered animation delays for each tool */
+.tool-item:nth-child(1) { animation-delay: 0s; }
+.tool-item:nth-child(2) { animation-delay: 0.5s; }
+.tool-item:nth-child(3) { animation-delay: 1s; }
+.tool-item:nth-child(4) { animation-delay: 1.5s; }
+.tool-item:nth-child(5) { animation-delay: 2s; }
+.tool-item:nth-child(6) { animation-delay: 2.5s; }
+.tool-item:nth-child(7) { animation-delay: 3s; }
+.tool-item:nth-child(8) { animation-delay: 3.5s; }
+.tool-item:nth-child(9) { animation-delay: 4s; }
+.tool-item:nth-child(10) { animation-delay: 4.5s; }
+.tool-item:nth-child(11) { animation-delay: 5s; }
+.tool-item:nth-child(12) { animation-delay: 5.5s; }
+
+/* Floating animation keyframes */
+@keyframes toolFloat {
+    0%, 100% {
+        transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+        transform: translateY(-8px) rotateX(2deg) rotateY(1deg);
+    }
+    50% {
+        transform: translateY(-4px) rotateX(0deg) rotateY(-1deg);
+    }
+    75% {
+        transform: translateY(-12px) rotateX(-1deg) rotateY(2deg);
+    }
 
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
+    transform: translateY(-15px) scale(1.05) rotateX(5deg);
     updateActiveNavLink();
     animateOnScroll();
     
     // Add scroll animate class to elements
     const elementsToAnimate = document.querySelectorAll('.timeline-item, .contact-item, .skill-item, .stat-item, .tool-item');
+    animation-play-state: paused; /* Pause floating on hover */
     elementsToAnimate.forEach(el => {
         el.classList.add('scroll-animate');
     });
@@ -331,6 +362,14 @@ document.addEventListener('DOMContentLoaded', () => {
             typeWriter(heroSubtitle, originalText, 40);
         }, 1000);
     }
+    
+    // Initialize tool floating animations
+    setTimeout(() => {
+        const toolItems = document.querySelectorAll('.tool-item');
+        toolItems.forEach((tool, index) => {
+            tool.style.animationPlayState = 'running';
+        });
+    }, 1000);
 });
 
 // Performance optimization: Throttle scroll events
