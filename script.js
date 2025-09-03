@@ -1,6 +1,6 @@
 // Navigation scroll effect
 window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
+    const nav = document.querySelector('.navbar');
     if (window.scrollY > 50) {
         nav.classList.add('scrolled');
     } else {
@@ -9,13 +9,13 @@ window.addEventListener('scroll', () => {
 });
 
 // Mobile menu toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
 
-if (mobileMenuBtn && navLinks) {
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        mobileMenuBtn.classList.toggle('active');
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
     });
 }
 
@@ -29,6 +29,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth',
                 block: 'start'
             });
+            
+            // Close mobile menu if open
+            if (navMenu && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
         }
     });
 });
@@ -42,13 +48,13 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
+            entry.target.classList.add('animate');
         }
     });
 }, observerOptions);
 
 // Observe elements for animation
-document.querySelectorAll('.tool-card, .section-content').forEach(el => {
+document.querySelectorAll('.scroll-animate').forEach(el => {
     observer.observe(el);
 });
 
@@ -74,11 +80,24 @@ document.querySelectorAll('.btn').forEach(button => {
     });
 });
 
-// Initialize floating animations for tool cards
-document.addEventListener('DOMContentLoaded', () => {
-    const toolCards = document.querySelectorAll('.tool-card');
-    toolCards.forEach((card, index) => {
-        // Add staggered delay for floating animation
-        card.style.animationDelay = `${index * 0.5}s`;
+// Active navigation link highlighting
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
     });
 });
