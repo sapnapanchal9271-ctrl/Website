@@ -955,12 +955,13 @@ section {
     width: 320px;
     height: 320px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .profile-image-container::before {
     content: '';
+.profile-image-container .profile-image-photo {
+    animation: orbitalRings 8s linear infinite, energyPulse 2s ease-in-out infinite alternate;
+}
+
     position: absolute;
     top: -12px;
     left: -12px;
