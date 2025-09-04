@@ -961,6 +961,7 @@ section {
 .profile-image-container .profile-image-photo {
     animation: orbitalRings 8s linear infinite, energyPulse 2s ease-in-out infinite alternate;
 }
+}
 
     position: absolute;
     top: -12px;
