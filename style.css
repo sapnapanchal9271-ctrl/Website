@@ -1022,9 +1022,6 @@ section {
     border: 4px solid var(--white);
     position: relative;
     z-index: 1;
-}
-
-.profile-image-photo:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: var(--shadow-colored-lg);
 }
