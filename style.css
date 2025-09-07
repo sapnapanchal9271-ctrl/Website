@@ -1024,7 +1024,6 @@ section {
     z-index: 1;
     transform: translateY(-5px) scale(1.02);
     box-shadow: var(--shadow-colored-lg);
-}
 
 .about-text {
     opacity: 0;
