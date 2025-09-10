@@ -259,13 +259,11 @@ cards.forEach(card => {
 // Enhanced tool item animations
 const toolItems = document.querySelectorAll('.tool-item');
 toolItems.forEach((tool, index) => {
-    // Add pulse animation on hover
     tool.addEventListener('mouseenter', function() {
         const icon = this.querySelector('.tool-icon');
         const name = this.querySelector('.tool-name');
         const description = this.querySelector('.tool-description');
         
-        // Staggered animation for content
         setTimeout(() => {
             if (icon) icon.style.transform = 'scale(1.2) rotate(5deg)';
         }, 50);
@@ -288,23 +286,7 @@ toolItems.forEach((tool, index) => {
         if (name) name.style.transform = 'translateY(0)';
         if (description) description.style.transform = 'translateY(0)';
     });
-    
-    // Add click animation
-    tool.addEventListener('click', function() {
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = 'translateY(-5px)';
-        }, 150);
-    });
 });
-
-// Tool items floating animation
-function addFloatingAnimation() {
-    toolItems.forEach((tool, index) => {
-        // Remove JavaScript animation since we're using CSS
-        tool.classList.add('tool-floating');
-    });
-}
 
 
 // Initialize on page load
