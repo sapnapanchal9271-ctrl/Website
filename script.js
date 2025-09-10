@@ -301,16 +301,11 @@ toolItems.forEach((tool, index) => {
 // Tool items floating animation
 function addFloatingAnimation() {
     toolItems.forEach((tool, index) => {
-        const delay = index * 200;
-        setTimeout(() => {
-            tool.style.animation = `float 3s ease-in-out infinite`;
-            tool.style.animationDelay = `${index * 0.2}s`;
-        }, delay);
+        // Remove JavaScript animation since we're using CSS
+        tool.classList.add('tool-floating');
     });
 }
 
-// Initialize floating animation after page load
-setTimeout(addFloatingAnimation, 2000);
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
